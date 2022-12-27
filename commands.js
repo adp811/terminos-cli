@@ -1,5 +1,7 @@
 import { Command } from "commander";
-import { addItemToOrder, showOrder } from "./index.js";
+import { updatePaymentInfo } from "./utilities/updatePaymentInfo.js";
+import { updateCustomerInfo } from "./utilities/updateCustomerInfo.js";
+import { updateAddressInfo } from "./utilities/updateAddressInfo.js";
 
 const program = new Command();
 
@@ -13,26 +15,29 @@ program
 
 // prettier-ignore
 program
-    .command('update payment')
+    .command('payment')
     .description('Update your payment information!')
     .action(() => {
-  
+        updatePaymentInfo();
+        console.log("payment information updated successfully!");
     });
 
 // prettier-ignore
 program
-    .command('update address')
+    .command('address')
     .description('Update your delivery address!')
     .action(() => {
- 
+        updateAddressInfo();
+        console.log("address information updated successfully!");
     });
 
 // prettier-ignore
 program
-    .command('update customer info')
+    .command('customer')
     .description('Update your customer information!')
     .action(() => {
-
+        updateCustomerInfo();
+        console.log("customer information updated successfully!");
     });
 
 // prettier-ignore
